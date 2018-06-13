@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load staticfiles %}
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Style -->
+    <style>
+        .separador {
+            padding-top:15px;
+        }
+
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 4px 2px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+
+        .table-result{
+            width:100%;
+        }
+
+        .table-result a, span{
+            display:block;
+            max-width:400px;
+            overflow: visible;
+        }
+    </style>
+    <title>PDF.</title>
+</head>
+
+<body>
+    <div>
+        <img src="https://i.imgur.com/Ix67t15.jpg">
+    </div>
+
+    <div>
+        <h2>Resultado:</h2>
+        <p>Indice:</p>
+        <table class="table table-striped table-result">
+            <thead>
+                <tr>
+                    <th>Titulo</th>
+                    <th>Url</th>
+                    <th>Filtro</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for dicts in indice_list %}
+                <tr>
+                    {% for key2, value in dicts.items %}
+                        {% if key2 == "titulo" %}
+                    <td>{{ value }}</td>
+                        {% elif key2 == "url_view" %}
+                    <td><a href="{{ value }}">{{ value }}</a></td>
+                        {% elif key2 == "subtitulo" %}
+                    <td><span>{{ value }}</span></td>
+                        {% endif %}
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+
+    <div class="separador">
+        <ul>{% for lista in incidencias_list %}
+        {% for key, values in lista.items %}
+                {% if key == "incidencias" %}
+            <li>
+                <ul>
+                    {% for incide in values %}
+                    <li>{{ incide }}</li>
+                    {% empty %}
+                    <li>Ninguna</li>
+                    {% endfor %}
+                </ul>
+            </li>
+                {% elif key == "id" %}
+            <li id="{{values}}">
+                {% elif key == "titulo" %}
+                {{values}}</li>
+                {% endif %}
+
+            {% endfor %}
+            {% endfor%}
+        </ul>
+    </div>
+
+</body>
+</html>

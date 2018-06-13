@@ -1,0 +1,108 @@
+{% extends 'twitter/base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+    <div class="container">
+            <div class="card" style="width:40%;position:relative;left:30%;">
+                <img class="card-img-top center-block" src="{{ user_tw.profile_image_url }}" alt="Card image" width="100" height="100">
+
+                <div class="card-body">
+                    <h4 class="card-title">Nombre: {{ user_tw.name }}</h4>
+                    <p class="card-text">
+                        <p>Nombre usuario: {{ user_tw.screen_name }}</p>
+                        <p>Id usuario: {{ user_tw.id_str }}</p>
+                        <p>Descripcion: {{ user_tw.description }}</p>
+                        <p>Localizacion: {{ user_tw.location }}</p>
+                        <p>Zona horaria: {{ user_tw.time_zone }}</p>
+                        <p>Geolocalizacion: {{ geo_enabled }}</p>
+                        <p>Fecha de creacion: {{ user_tw.create_at }}</p>
+                    </p>
+                    <div class="row">
+                         <div class="col-md-4 text-center">
+                             <a>TWEETS</a>
+                             <p><a href="#" data-toggle="collapse" data-target="#tweets">{{ user_tw.statuses_count }}</a></p>
+                        </div>
+
+                        <div class="col-md-4 text-center">
+                            <a>SEGUIDORES</a>
+                            <p><a href="#" data-toggle="collapse" data-target="#seguidores">{{ user_tw.followers_count }}</a></p>
+                        </div>
+
+                        <div class="col-md-4 text-center">
+                            <a>SEGUIDOS</a>
+                            <p><a href="#" data-toggle="collapse" data-target="#seguidos">{{ user_tw.friends_count }}</a></p>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+    <div id="tweets" class="collapse container">
+            <table class="table">
+                <thead class="thead-dark">
+                  <tr>
+                      <th>ID</th>
+                      <th>Fecha</th>
+                      <th>Texto</th>
+                      <th>Fuente</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for tweet in tweets_user %}
+                        <tr>
+                            <td>{{ tweet.id_str }}</td>
+                            <td>{{ tweet.created_at }}</td>
+                            <td>{{ tweet.text }}</td>
+                            <td>{{ tweet.source }}</td>
+                         </tr>
+                    {% endfor %}
+                </tbody>
+              </table>
+    </div>
+    <div id="seguidores" class="collapse container">
+        <table class="table">
+            <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Apodo</th>
+                <th>Descripcion</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for seguidor in seguidores_user %}
+            <tr>
+                <td><a href="{% url 'perfil_twitter' seguidor.id_str %}">{{ seguidor.id_str }}</a></td>
+                <td>{{ seguidor.name }}</td>
+                <td>{{ seguidor.screen_name }}</td>
+                <td>{{ seguidor.description }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div id="seguidos" class="collapse container">
+            <table class="table">
+                <thead class="thead-dark">
+                  <tr>
+                      <th>ID</th>
+                      <th>Nombre</th>
+                      <th>Apodo</th>
+                      <th>Descripcion</th>
+                  </tr>
+                </thead>
+                <tbody>
+                 {% for seguidor in seguidos_user %}
+                    <tr>
+                        <td><a href="{% url 'perfil_twitter' seguidor.id_str %}">{{ seguidor.id_str }}</a></td>
+                        <td>{{ seguidor.name }}</td>
+                        <td>{{ seguidor.screen_name }}</td>
+                        <td>{{ seguidor.description }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+    </div>
+
+
+{% endblock content %}

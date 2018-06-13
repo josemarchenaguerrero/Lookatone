@@ -1,0 +1,105 @@
+{% extends 'spider_google/cabecera.html' %}
+{% load staticfiles %}
+
+{% block body %}
+
+
+    <div class="container">
+        <a href="{% url 'informe_pdf_view' %}" type="button" class="btn btn-info pdf-button">Obtener pdf.</a>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Resultado:</h2>
+                <p>Indice:</p>
+                <table class="table table-striped table-result">
+                    <thead>
+                        <tr>
+                            <th>Titulo</th>
+                            <th>Url</th>
+                            <th>Filtro</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for dicts in indice_list %}
+                        <tr>
+                            {% for key2, value in dicts.items %}
+                                {% if key2 == "id" %}
+                            <td><a href="#{{ value }}"><span >
+                                {% elif key2 == "titulo" %}
+                                {{ value }}</a>
+                            </td>
+                                {% elif key2 == "url" %}
+                            <td><a href="{{ value }}">
+                                {% elif key2 == "url_view" %}
+                                {{ value }}</a></td>
+                                {% elif key2 == "subtitulo" %}
+                            <td><span>{{ value }}</span></td>
+                                {% endif %}
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="just-padding">
+                    <div class="list-group list-group-root well">
+                        {% for lista in incidencias_list %}
+                        {% for key, values in lista.items %}
+                            {% if key == "id" %}
+                        <a href="#{{values}}"
+                            {% elif key == "id_ref" %}
+                        id="{{values}}" class="list-group-item" data-toggle="collapse">
+                            {% elif key == "titulo" %}
+                            <i class="glyphicon glyphicon-chevron-right"></i>{{values}}
+                        </a>
+                            {% elif key == "id2" %}
+                        <div class="list-group collapse" id="{{values}}">
+                            {% elif key == "incidencias" %}
+                                {% for incide in values %}
+                            <span class="list-group-item">{{ incide }}</span>
+                                {% empty %}
+                            <span class="list-group-item">Ninguna.</span>
+                                {% endfor %}
+                        </div>
+                            {% endif %}
+                        {% endfor %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center nueva-busqueda-buttom">
+               <a class="btn btn-primary" href="{% url 'index_spider_interfaz' %}" role="button">Hacer nueva busqueda</a>
+            </div>
+        </div>
+    </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<script>
+    <!--Esta funcion javascript permite cambiar el glyphicon cuando se expande o se retrae un collapse determinado.-->
+    $(function() {
+
+        $('.list-group-item').on('click', function() {
+            $('.glyphicon', this)
+            .toggleClass('glyphicon-chevron-right')
+            .toggleClass('glyphicon-chevron-down');
+      });
+
+    });
+</script>
+
+{% endblock body %}

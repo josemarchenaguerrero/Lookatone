@@ -1,0 +1,612 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/spider_google/templates/spider_google/resultados.html" line="93" mnemonic="2" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b7921b53-9540-4d63-873a-5ecc1a5461ba" name="Default" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/spider_google/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1852">
+              <caret line="242" column="65" selection-start-line="242" selection-start-column="65" selection-end-line="242" selection-end-column="65" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../../../../views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="867">
+              <caret line="150" column="35" lean-forward="true" selection-start-line="107" selection-start-column="12" selection-end-line="150" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>logo</find>
+      <find>F</find>
+      <find>print</find>
+      <find>respues</find>
+      <find>resp</find>
+      <find>pprueba</find>
+      <find>formulariofiltro</find>
+      <find>buscador_google</find>
+      <find>contexto</find>
+    </findStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Twitter/templates/perfiles.html" />
+        <option value="$PROJECT_DIR$/interfaz_modulos/urls.py" />
+        <option value="$PROJECT_DIR$/interfaz_modulos/templates/base.html" />
+        <option value="$PROJECT_DIR$/templates/interfaz/index.html" />
+        <option value="$PROJECT_DIR$/templates/twitter/index.html" />
+        <option value="$PROJECT_DIR$/templates/twitter/perfiles.html" />
+        <option value="$PROJECT_DIR$/Twitter/templates/index.html" />
+        <option value="$PROJECT_DIR$/Twitter/templates/base.html" />
+        <option value="$PROJECT_DIR$/interfaz_modulos/templates/index.html" />
+        <option value="$PROJECT_DIR$/Twitter/templates/twitter/Login.html" />
+        <option value="$PROJECT_DIR$/Twitter/templates/twitter/base.html" />
+        <option value="$PROJECT_DIR$/Twitter/templates/twitter/perfiles.html" />
+        <option value="$PROJECT_DIR$/Twitter/templates/twitter/index.html" />
+        <option value="$PROJECT_DIR$/Twitter/classes/extraer_info_twitter.py" />
+        <option value="$PROJECT_DIR$/Twitter/classes/anallisis_filtrado.py" />
+        <option value="$PROJECT_DIR$/spider_google/templates/twitter/base.html" />
+        <option value="$PROJECT_DIR$/spider_google/templates/twitter/perfiles.html" />
+        <option value="$PROJECT_DIR$/spider_google/templates/spider_google/perfiles.html" />
+        <option value="$PROJECT_DIR$/UnderTwitter/urls.py" />
+        <option value="$PROJECT_DIR$/Twitter/models.py" />
+        <option value="$PROJECT_DIR$/Twitter/admin.py" />
+        <option value="$PROJECT_DIR$/static/css/style.css" />
+        <option value="D:/../spider_google/style.css" />
+        <option value="D:/../spider_google/pdf.html" />
+        <option value="D:/../spider_google/resultados.html" />
+        <option value="$PROJECT_DIR$/spider_google/templates/spider_google/base.html" />
+        <option value="D:/../spider_google/css.css" />
+        <option value="D:/../spider_google/index.html" />
+        <option value="$PROJECT_DIR$/spider_google/templates/spider_google/progreso.html" />
+        <option value="$PROJECT_DIR$/spider_google/static/css/css.css" />
+        <option value="$PROJECT_DIR$/Twitter/forms.py" />
+        <option value="$PROJECT_DIR$/interfaz_modulos/templates/interfaz/base.html" />
+        <option value="$PROJECT_DIR$/Twitter/static/css/css2.css" />
+        <option value="$PROJECT_DIR$/interfaz_modulos/templates/interfaz/index.html" />
+        <option value="$PROJECT_DIR$/spider_google/templates/spider_google/cabecera.html" />
+        <option value="$PROJECT_DIR$/UnderTwitter/settings.py" />
+        <option value="$PROJECT_DIR$/Twitter/static/css/css.css" />
+        <option value="$PROJECT_DIR$/Twitter/templates/twitter/cabecera.html" />
+        <option value="$PROJECT_DIR$/interfaz_modulos/views.py" />
+        <option value="$PROJECT_DIR$/Twitter/urls.py" />
+        <option value="$PROJECT_DIR$/Twitter/views.py" />
+        <option value="$PROJECT_DIR$/Twitter/templates/twitter/principal.html" />
+        <option value="$PROJECT_DIR$/spider_google/templates/spider_google/pdf.html" />
+        <option value="$PROJECT_DIR$/spider_google/classes/google_spider.py" />
+        <option value="$PROJECT_DIR$/spider_google/templates/spider_google/resultados.html" />
+        <option value="$PROJECT_DIR$/spider_google/templates/spider_google/spider.html" />
+        <option value="$PROJECT_DIR$/spider_google/admin.py" />
+        <option value="$PROJECT_DIR$/spider_google/urls.py" />
+        <option value="$PROJECT_DIR$/spider_google/forms.py" />
+        <option value="$PROJECT_DIR$/spider_google/models.py" />
+        <option value="$PROJECT_DIR$/spider_google/views.py" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="155" />
+    <option name="y" value="-10" />
+    <option name="width" value="1076" />
+    <option name="height" value="867" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="UnderTwitter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="UnderTwitter" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="UnderTwitter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="UnderTwitter" type="462c0819:PsiDirectoryNode" />
+              <item name="interfaz_modulos" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="UnderTwitter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="UnderTwitter" type="462c0819:PsiDirectoryNode" />
+              <item name="interfaz_modulos" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="UnderTwitter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="UnderTwitter" type="462c0819:PsiDirectoryNode" />
+              <item name="interfaz_modulos" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="interfaz" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="UnderTwitter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="UnderTwitter" type="462c0819:PsiDirectoryNode" />
+              <item name="spider_google" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="UnderTwitter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="UnderTwitter" type="462c0819:PsiDirectoryNode" />
+              <item name="spider_google" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="UnderTwitter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="UnderTwitter" type="462c0819:PsiDirectoryNode" />
+              <item name="spider_google" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="spider_google" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="UnderTwitter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="UnderTwitter" type="462c0819:PsiDirectoryNode" />
+              <item name="Twitter" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="UnderTwitter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="UnderTwitter" type="462c0819:PsiDirectoryNode" />
+              <item name="UnderTwitter" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\zorro\Desktop\Programas\Django\Undercover\UnderTwitter\spider_google\templates\spider_google" />
+      <recent name="C:\Users\Jose-Portatil\Desktop\repositoriouc\UnderTwitter\Twitter\templates\registro" />
+      <recent name="C:\Users\zorro\Desktop\Programas\Django\Undercover\UnderTwitter\interfaz_modulos\templates\interfaz" />
+      <recent name="C:\Users\zorro\Desktop\Programas\Django\Undercover\UnderTwitter\Twitter\templates\twitter" />
+      <recent name="C:\Users\zorro\Desktop\Programas\Django\Undercover\UnderTwitter\Twitter" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\zorro\Desktop\Programas\Django\Undercover\UnderTwitter\interfaz_modulos\templates\interfaz" />
+      <recent name="C:\Users\zorro\Desktop\Programas\Django\Undercover\UnderTwitter\spider_google" />
+      <recent name="C:\Users\zorro\Desktop\Programas\Django\Undercover\UnderTwitter\Twitter" />
+      <recent name="C:\Users\zorro\Desktop\Undercover\UnderTwitter\Twitter" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.google_spider">
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <module name="UnderTwitter" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\Admin\Desktop\Undercover\Undercover\UnderTwitter\venv\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="anallisis_filtrado" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="UnderTwitter" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\Admin\Desktop\Undercover\Undercover\UnderTwitter\venv\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Twitter/classes" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Twitter/classes/anallisis_filtrado.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="google_spider" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="UnderTwitter" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\Admin\Desktop\Undercover\Undercover\UnderTwitter\venv\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/spider_google/classes" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/spider_google/classes/google_spider.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.anallisis_filtrado" />
+      <item itemvalue="Python.google_spider" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.google_spider" />
+        <item itemvalue="Python.anallisis_filtrado" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b7921b53-9540-4d63-873a-5ecc1a5461ba" name="Default" comment="" />
+      <created>1521015371905</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1521015371905</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.161875" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3295325" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.32457292" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.40275863" />
+      <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Python Console" order="8" weight="0.3295325" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.3289183" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4262069" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" id="Data View" order="3" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32689655" />
+    </layout>
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.css" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$USER_HOME$/UnderTwitter/Twitter/urls.py</url>
+          <line>16</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="23" />
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/spider_google/templates/spider_google/perfiles.html" />
+    <entry file="file://$PROJECT_DIR$/Twitter/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" selection-start-line="1" selection-end-line="1" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../TiendaDeCartas/Tienda/templates/noticias.html" />
+    <entry file="file://$PROJECT_DIR$/../../TiendaDeCartas/Tienda/templates/base.html" />
+    <entry file="file://$PROJECT_DIR$/../../TiendaDeCartas/Tienda/views.py" />
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/threading.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="915" selection-start-line="915" selection-end-line="915" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/site-packages/requests/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-9336">
+          <caret line="378" selection-start-line="378" selection-end-line="378" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/style.css" />
+    <entry file="file://D:/../spider_google/style.css" />
+    <entry file="file://D:/../spider_google/pdf.html" />
+    <entry file="file://D:/../spider_google/resultados.html" />
+    <entry file="file://$PROJECT_DIR$/../../Copia Melli/UnderTwitter/UnderTwitter/settings.py" />
+    <entry file="file://$PROJECT_DIR$/../../Copia Melli/UnderTwitter/UnderTwitter/urls.py" />
+    <entry file="file://$PROJECT_DIR$/../../Copia Melli/UnderTwitter/interfaz_modulos/views.py" />
+    <entry file="file://$PROJECT_DIR$/Twitter/templates/twitter/perfiles.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1326">
+          <caret line="78" column="54" selection-start-line="78" selection-start-column="54" selection-end-line="78" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Twitter/templates/twitter/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="22" lean-forward="true" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Twitter/templates/registration/login.html" />
+    <entry file="file://E:/Undercover/UnderTwitter/Twitter/views.py" />
+    <entry file="file://$PROJECT_DIR$/../../Copia Melli/proyectouc/ucproject/UnderTwitter/UnderTwitter/settings.py" />
+    <entry file="file://D:/../spider_google/css.css" />
+    <entry file="file://D:/../spider_google/index.html" />
+    <entry file="file://$PROJECT_DIR$/Twitter/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="17" column="20" lean-forward="true" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spider_google/apps.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Twitter/templates/twitter/registration/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="12" column="43" lean-forward="true" selection-start-line="12" selection-start-column="43" selection-end-line="12" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UnderTwitter/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="24" column="23" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/interfaz_modulos/templates/interfaz/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="8" column="97" selection-start-line="8" selection-start-column="97" selection-end-line="8" selection-end-column="97" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/interfaz_modulos/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="22" column="41" lean-forward="true" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UnderTwitter/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="659">
+          <caret line="157" column="22" selection-start-line="157" selection-start-column="22" selection-end-line="157" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spider_google/templates/spider_google/cabecera.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="21" column="18" lean-forward="true" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="89" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spider_google/templates/spider_google/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="609">
+          <caret line="29" column="106" selection-start-line="29" selection-start-column="79" selection-end-line="29" selection-end-column="106" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/interfaz_modulos/templates/interfaz/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1054">
+          <caret line="62" column="4" selection-start-line="62" selection-start-column="4" selection-end-line="72" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spider_google/static/css/css.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1344">
+          <caret line="64" column="4" selection-start-line="64" selection-start-column="4" selection-end-line="64" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Twitter/templates/twitter/cabecera.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="850">
+          <caret line="50" column="14" selection-start-line="50" selection-start-column="14" selection-end-line="50" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/interfaz_modulos/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="4" column="31" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Twitter/templates/twitter/principal.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5065">
+          <caret line="631" column="35" lean-forward="true" selection-start-line="631" selection-start-column="35" selection-end-line="631" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Twitter/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="263" column="34" selection-start-line="263" selection-start-column="34" selection-end-line="263" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Twitter/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="28" selection-start-column="28" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Twitter/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="33" column="24" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Twitter/static/css/css.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="702">
+          <caret line="167" selection-start-line="167" selection-end-line="167" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Twitter/static/css/css2.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" selection-start-line="19" selection-end-line="28" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spider_google/classes/google_spider.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="80" column="20" lean-forward="true" selection-start-line="80" selection-start-column="20" selection-end-line="80" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spider_google/templates/spider_google/progreso.html" />
+    <entry file="file://$PROJECT_DIR$/spider_google/templates/spider_google/pdf.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-35">
+          <caret line="59" column="19" lean-forward="true" selection-start-line="59" selection-start-column="19" selection-end-line="59" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spider_google/templates/spider_google/resultados.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="92" column="8" lean-forward="true" selection-start-line="92" selection-start-column="8" selection-end-line="92" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spider_google/templates/spider_google/spider.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="67">
+          <caret line="317" column="9" lean-forward="true" selection-start-line="317" selection-start-column="9" selection-end-line="317" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spider_google/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="23" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spider_google/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="27" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spider_google/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="22" selection-start-line="22" selection-end-line="23" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spider_google/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="32" selection-end-line="7" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../../../views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="867">
+          <caret line="150" column="35" lean-forward="true" selection-start-line="107" selection-start-column="12" selection-end-line="150" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spider_google/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1852">
+          <caret line="242" column="65" selection-start-line="242" selection-start-column="65" selection-end-line="242" selection-end-column="65" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

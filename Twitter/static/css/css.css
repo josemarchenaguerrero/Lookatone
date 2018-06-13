@@ -1,0 +1,167 @@
+#cent{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    margin-top:2%;
+    width:900px;
+    height:600px;
+}
+
+body{
+    display:block;
+}
+
+.oscuro{
+    background-color:#2ECCFA;
+    color:white;
+}
+
+#margin{
+    margin-left:45%;
+}
+.padded {
+    padding:50px;
+    padding-bottom:0px;
+    padding-top:0px;
+    color:#1E67A7;
+}
+
+#menu2bar > li > a:hover{
+    background-color:none !important;
+    color:#A4A4A4;
+}
+
+#menu2bar > li > a:focus{
+    background-color:#2ECCFA;
+    color:white;
+}
+
+#padded {
+    padding:25px;
+    padding-bottom:0px;
+    padding-top:0px;
+    color:#1E67A7;
+}
+.crop{
+    width:250px;
+    word-wrap: break-word;
+}
+
+.cont{
+    background-color:blue;
+}
+
+.active{
+    background-color:#A4A4A4;
+    color:white;
+}
+
+#menubar > li > a:hover{
+    background-color:none !important;
+    color:#A4A4A4;
+}
+
+#menubar > li > a:focus{
+    background-color:#A4A4A4;
+    color:white;
+}
+
+#formbusqueda{
+    padding-left:8%;
+}
+
+#map{
+    max-width:700px;
+    height:200px;
+}
+
+#map2{
+    max-width:700px;
+    height:200px;
+}
+
+#map3{
+    max-width:700px;
+    height:200px;
+}
+
+
+
+  #padmin2000{
+        padding:20px;
+  }
+
+  #padmin2002{
+        padding-left:20px;
+        padding-rigth:20px;
+        padding-top:20px;
+  }
+  #map{
+        max-width:700px;
+        height:200px;
+  }
+  #map2{
+        max-width:700px;
+        height:200px;
+  }
+  #map3{
+        width:100%;
+        height:400px;
+  }
+
+
+
+@media only screen and (max-width:1599px){
+  #padmin2001{
+        padding-left:20px;
+        padding-rigth:20px;
+        padding-top:20px;
+  }
+}
+
+
+#tit > p > a:hover{
+    background-color:none !important;
+    color:#A4A4A4;
+    height:100%;
+}
+
+#tit > p > a:focus{
+    background-color:#2ECCFA;
+    color:white;
+    height:100%;
+}
+#menu2bar{
+    padding-top:20px;
+    padding-right:50px;
+    padding-left:50px;
+}
+
+.verdadero{
+    background-color:#CEF6CE;
+}
+.falso{
+    background-color:#FA5858;
+}
+
+#myProgress {
+    width: 100%;
+    background-color: #F2F2F2;
+}
+#myBar {
+    width: 1%;
+    height: 2px;
+    background-color: #FF0000;
+}
+
+.centrar{
+    margin:10px auto!important;
+    max-width:600px!important;
+}
+#campana{
+    color:white;
+}
+

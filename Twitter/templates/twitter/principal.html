@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+{% extends 'twitter/cabecera.html' %}
+{% load static %}
+<html lang="en">
+<head>
+    {% block title %}UCGlobal - Principal{% endblock %}
+</head>
+<body>
+{% block body %}
+    <div class="container-fluid" >
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12" style="background-color:gray;vertical-align: middle;margin-top:-20px;">
+                <ul class="nav navbar-nav" id="menubar">
+                    <li><a id="idbu" class="active" href="#"><span style="color:white;">Busequeda Usuarios</span></a></li>
+                   <li><a id="idru" href="#" ><span style="color:white;">Relaciones Usuarios</span></a></li>
+                   <li><a id="idgl" href="#" ><span style="color:white;">Búsqueda Avanzada</span></a></li>
+                   <li><a id="idga" href="#" ><span style="color:white;">Seguimiento </span><span class="glyphicon glyphicon-bell" id="campana"></span></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row" id="infoloop">
+            <div class="col-xd-12 col-sm-8 col-md-8">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12" id="padmin2000">
+                        <h4>Busqueda Usuarios</h4>
+                        <hr>
+                        <form method="post" data-validate-username-url="{% url 'principal' %}" id="formulario">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="username">Usuario:</label>
+                                <input type="text" class="form-control" name='username' id="username" style="max-width:900px;">
+                            </div>
+                            <div class="form-group">
+                                <input  class="btn btn-info" id="aceptar" type="submit" value="Buscar" name="insertar"/>
+                            </div>
+                        </form>
+                        <div id="myProgress" style="background-color:white;" hidden>
+                          <img src="{% static 'img/ajax-loader.gif' %}">
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12" id="padmin2002" hidden>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-4 col-md-2">
+                                <img src="" width="100%"  id="logoperfil">
+                            </div>
+                            <div class="col-xs-4 col-sm-4 col-md-3">
+                                <p id="usunick"></p>
+                                <p id="usuname"></p>
+                                <p id="usuid"></p>
+                                <p id="usulocation"></p>
+                            </div>
+                            <div class="col-xs-4 col-sm-4 col-md-3">
+                                <p id="usuplocation"></p>
+                                <p id="usudescripcion" class="crop"></p>
+                                <p id="usugeo"></p>
+                                <p id="usufecha"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12" id="padmin2001" hidden>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <ul class="nav navbar-nav" id="menu2bar">
+                                    <li id="tweet" class="padded"><a id="enlacet" href="#"  >TWEETS()</a></li>
+                                    <li id="followers" class="padded"><a id="enlacefw" href="#"  >SEGUIDORES()</a></li>
+                                    <li id="following" class="padded"><a id="enlacefwg" href="#"  >SEGUIDOS()</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12" id="oculto" hidden>
+                        <table class="table" >
+                            <thead class="oscuro">
+                              <tr>
+                                  <th>ID</th>
+                                  <th>Fecha</th>
+                                  <th>Texto</th>
+                                  <th>Fuente</th>
+                              </tr>
+                            </thead>
+                            <tbody id="cuerpotabla">
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12" id="oculto3" hidden>
+                       <table class="table">
+                            <thead class="oscuro">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nombre</th>
+                                    <th>Apodo</th>
+                                    <th>Descripcion</th>
+                                </tr>
+                            </thead>
+                            <tbody id="cuerpofollowers">
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12" id="oculto4" hidden>
+                         <table class="table">
+                            <thead class="oscuro">
+                              <tr>
+                                  <th>ID</th>
+                                  <th>Nombre</th>
+                                  <th>Apodo</th>
+                                  <th>Descripcion</th>
+                              </tr>
+                            </thead>
+                            <tbody id="cuerpofollowing">
+                            </tbody>
+                          </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-4" id="mapas">
+                <h3>Seguidores:</h3>
+                <div id="map"></div>
+                <h3>Seguidos:</h3>
+                <div id="map2"></div>
+                <div id="tops">
+                    <h3 id="topdispositivos"></h3>
+                </div>
+                <div id="tops">
+                    <h3 id="tophashtags"></h3>
+                </div>
+                <div id="tops">
+                    <h3 id="topusers"></h3>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="divrelacion" hidden>
+            <div class="col-md-12">
+                <h4>Busqueda Usuarios</h4>
+                <hr>
+                <form method="post" data-validate-username-url="{% url 'comprobaram' %}" id="formulariorelacion">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="username">Usuario (Screen name):</label>
+                                <input type="text" class="form-control" name='usu1' id="usu1" style="max-width:900px;">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="username">Amigo de:</label>
+                                <input type="text" class="form-control" name='usu2' id="usu2" style="max-width:900px;">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input  class="btn btn-info" id="aceptar" type="submit" value="Comprobar" name="insertar"/>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-12" style="text-align:center;">
+                <div id="respuestaamistad" style="font-size:20px;"></div>
+                <div id="respuestaamistad2" style="font-size:20px;"></div>
+            </div>
+        </div>
+        <div class="row" id="geolocationwindow" style="margin-top:50px;" hidden>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form method="post" data-validate-username-url="{% url 'cargartweets' %}" id="formulariogeolocation">
+                            {% csrf_token %}
+                                    <div class="form-group">
+                                        <label for="username">Ubicación</label>
+                                        <input type="text" class="form-control" name='ubi' id="ubi" style="max-width:900px;">
+                                    </div>
+                                    <div class="form-group">
+                                        <input  class="btn btn-info" id="aceptar" type="submit" value="Buscar" name="insertar"/>
+                                    </div>
+                            </form>
+                        </div>
+                        <div class="col-md-12">
+                            <form method="post" data-validate-username-url="{% url 'pprueba' %}" id="formulariofiltro">
+                            {% csrf_token %}
+                                    <div class="form-group">
+                                        <label for="username">Hashtag / Palabra</label>
+                                        <input type="text" class="form-control" name='filt' id="filt" style="max-width:900px;">
+                                    </div>
+                                    <div class="form-group">
+                                        <input  class="btn btn-info" id="aceptar" type="submit" value="Buscar" name="insertar"/>
+                                    </div>
+                            </form>
+                        </div>
+                        <div class="col-md-12" id="loopgeolocation">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="col-xs-12">
+                          <div id="map3"></div>
+                    </div>
+                </div>
+        </div>
+        <div class="row" id="alarmwindow" hidden>
+                <div class="col-md-12">
+                      <form method="post" class="centrar"  data-validate-username-url="{% url 'alarma' %}" id="formularioseguimiento">
+                          {% csrf_token %}
+                          <div class="row">
+                              <div class="col-md-6">
+                                  <div class="form-group centrar">
+                                       <label for="username">Usuario</label>
+                                       <input type="text" class="form-control" name='usualarma' id="usualarma" >
+                                  </div>
+                              </div>
+                              <div class="col-md-6">
+                                  <div class="form-group centrar">
+                                       <label for="username">Palabra Clave</label>
+                                       <input type="text" class="form-control" name='usupalabra' id="usupalabra" >
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="form-group centrar">
+                                <input  class="btn btn-info" id="aceptar" type="submit" value="Seguir" name="insertar"/>
+                          </div>
+                      </form>
+                </div>
+            <div class="col-md-12" id="respuesta">
+
+            </div>
+        </div>
+    <script>
+
+        <!--función jquery para captar el click en un formulario, retorna la información,tweets,seguidores y seguidos de un usuario asi como carga los mapas de seguidore sy seguidos-->
+        $("#formulario").submit(function(event) {
+          event.preventDefault();
+          var form = $(this).closest("#formulario");
+          $("#myProgress").show();
+          <!--se realiza la petición al controlador y se espera una respuesta-->
+          $.ajax({
+            url: form.attr("data-validate-username-url"),
+            data: $(this).serialize(),
+            dataType: 'json',
+            success: function (data) {
+              if (data.error) {
+                if(data.error == '<Response [429]>'){
+                    alert('rate limit excedido espere 15 minutos y vuelva a intentarlo');
+                    $("#myProgress").hide();
+                }
+                if(data.error == '<Response [404]>'){
+                    alert('no existe ninguna cuenta de twitter con ese nombre');
+                    $("#myProgress").hide();
+                }
+                if(data.error == '<Response [401]>'){
+                    alert('Autentificación de tokens erronea');
+                    $("#myProgress").hide();
+                }
+              }else{
+                $("#myProgress").hide();
+                loadperfil(data,"#usunick","#usuname","#usuid","#usulocation","#usuplocation","#usudescripcion","#usugeo","#usufecha","#logoperfil",
+                "#tweet","#followers","#following");
+                tweetsloop(data.listatweets.lista);
+                loadperfiles(data.listatweets.listafollowers);
+                followingloop(data.listatweets.listafollowing);
+                var matriz= [];
+                cargarmapa(data.listatweets.usulugar,"map");
+                topdisp(data.listatweets.listadispositivos);
+                tophash(data.hash);
+                topusers(data.mostmentioned);
+                cargarmapa(data.listatweets.usudlugar,"map2");
+              }
+            }
+          });
+        });
+
+        <!--función jquery para captar el click en un formulario, retorna los tweets por palabra clave o hashtags dado-->
+        $("#formulariofiltro").submit(function(event) {
+          event.preventDefault();
+          var form = $(this).closest("#formulariofiltro");
+          $.ajax({
+            url: form.attr("data-validate-username-url"),
+            data: $(this).serialize(),
+            dataType: 'json',
+            success: function (data) {
+              if (data.error) {
+                if(data.error == '<Response [429]>'){
+                    alert('rate limit excedido espere 15 minutos y vuelva a intentarlo');
+                }
+                if(data.error == '<Response [404]>'){
+                    alert('no existe ninguna cuenta de twitter con ese nombre');
+                }
+                if(data.error == '<Response [401]>'){
+                    alert('Autentificación de tokens erronea');
+                }
+              }else{
+                <!--.empty() vacia las etiquetas html asociadas a otra etiqueta html mediante .append()-->
+                 $('#loopgeolocation').empty();
+                 for (var a in data.hastaghs){
+                    var line = data.hastaghs[a].split(';')
+                    var content = '<hr>'+'<div>'+ '<p>' + line[0]+ ' / ' + line[1]+ ' / ' + line[2] +'</p>' +'</div>';
+                    $('#loopgeolocation').append(content);
+                    }
+                    cargarmapa(data.arrlugares,'map3');
+              }
+            }
+          });
+        });
+
+        <!--función jquery para captar el click en un formulario, retorna los tweets del apartado seguimiento(alarma)-->
+        $("#formularioseguimiento").submit(function(event) {
+          event.preventDefault();
+          var form = $(this).closest("#formularioseguimiento");
+          $.ajax({
+            url: form.attr("data-validate-username-url"),
+            data: $(this).serialize(),
+            dataType: 'json',
+            success: function (data) {
+              if (data.error) {
+                if(data.error == '<Response [429]>'){
+                    alert('rate limit excedido espere 15 minutos y vuelva a intentarlo');
+                }
+                if(data.error == '<Response [404]>'){
+                    alert('no existe ninguna cuenta de twitter con ese nombre');
+                }
+                if(data.error == '<Response [401]>'){
+                    alert('Autentificación de tokens erronea');
+                }
+              }else{
+                if(!(data.response.no)){
+                    $('#campana').css("color","red");
+                    for(var a in data.response){
+                        var cont = data.response[a].split(';');
+                        var content='<p>' + cont[0] +'</p>';
+                        $('#respuesta').append(content);
+                    }
+                }
+                <!--forma de añadir un sleep a jquery-->
+                setInterval(function(){
+                $('#formularioseguimiento').submit();
+                }, 60000);
+              }
+            }
+          });
+        });
+        <!--función jquery para captar el click en un formulario, retorna la relación entre 2 usuarios-->
+        $("#formulariorelacion").submit(function(event) {
+          event.preventDefault();
+          var form = $(this).closest("#formulariorelacion");
+          $.ajax({
+            url: form.attr("data-validate-username-url"),
+            data: $(this).serialize(),
+            dataType: 'json',
+            success: function (data) {
+              if (data.error) {
+                if(data.error == '<Response [429]>'){
+                    alert('rate limit excedido espere 15 minutos y vuelva a intentarlo');
+                }
+                if(data.error == '<Response [404]>'){
+                    alert('una de las cuentas de Twitter introducidas no es válida');
+                }
+                if(data.error == '<Response [401]>'){
+                    alert('Autentificación de tokens erronea');
+                }
+              }else{
+                $('#respuestaamistad').removeClass();
+                var resp = '';
+                $('#respuestaamistad').empty();
+                if(data.rfollowing == false){
+                    resp = '<p>'+'@'+ $('#usu1').val() + ' no sigue a ' + '@'+ $('#usu2').val() +'<span class="glyphicon glyphicon-remove" style="color:red;"></span>'+'</p>';
+
+                }else{
+                    resp = '<p>'+'@'+ $('#usu1').val() + ' sigue a ' + '@'+ $('#usu2').val() +'<span class="glyphicon glyphicon-ok" style="color:green;"></span>'+'</p>';
+                }
+                $('#respuestaamistad').append(resp);
+                var final = '';
+                $('#respuestaamistad2').empty();
+                if(data.rfollowed == false){
+                    final = '<p>'+'@'+ $('#usu2').val() + ' no sigue a ' + '@'+ $('#usu1').val() +'<span class="glyphicon glyphicon-remove" style="color:red;"></span>'+'</p>';
+
+                }else{
+                    final = '<p>'+'@'+ $('#usu2').val() + ' sigue a ' + '@'+ $('#usu1').val() +'<span class="glyphicon glyphicon-ok" style="color:green;"></span>'+'</p>';
+
+                }
+                $('#respuestaamistad2').append(final);
+              }
+            }
+          });
+        });
+
+        <!--función jquery para captar el click en un formulario, retorna los tweets por geolocalización-->
+        $("#formulariogeolocation").submit(function(event) {
+          event.preventDefault();
+          var form = $(this).closest("#formulariogeolocation");
+          $('#loopgeolocation').empty();
+          $.ajax({
+            url: form.attr("data-validate-username-url"),
+            data: $(this).serialize(),
+            dataType: 'json',
+            success: function (data) {
+              if (data.error) {
+                if(data.error == '<Response [429]>'){
+                    alert('timelimitexceded');
+                }
+                if(data.error == '<Response [404]>'){
+                    alert('Ubicación erronea');
+                }
+                if(data.error == '<Response [401]>'){
+                    alert('Autentificación de tokens erronea');
+                }
+                if(data.error == '<Response [400]>'){
+                    alert('Introduzca una palabra o hashtags válidos');
+                }
+              }else{
+                for (var a in data.rfollowing){
+                    var line = data.rfollowing[a].split(';')
+                    var content = '<hr>'+'<div>'+ '<p>' + line[0]+ ' / ' + line[1]+ ' / ' + line[2] +'</p>' +'</div>';
+                    $('#loopgeolocation').append(content);
+                }
+                cargarmapa(data.arrlugares,'map3');
+              }
+            }
+          });
+        });
+
+        <!--función para cargar los datos del usuario introducido por teclado en la pestaña Busqueda Usuarios-->
+        var loadperfil = function(data,nick,name,id,location,plocation,descripcion,geo,fecha,avatar,tweet,follows,followg){
+            $(nick).text("Username: ".concat(data.user.username));
+            $(name).text("Nombre: ".concat(data.user.name));
+            $(id).text("id: ".concat(data.user.id));
+            $(location).text("Location: ".concat(data.user.location));
+            $(plocation).text("Profile Location: ".concat(data.user.profilelocation));
+            $(descripcion).text("Description: ".concat(data.user.description));
+            $(geo).text("Geo Location: ".concat(data.user.geoenabled));
+            $(fecha).text("Fecha Registro: ".concat(data.user.creationdata));
+            var linkimg = data.user.image;
+            $(avatar).attr('src',linkimg.replace("normal","400x400"));
+            $(enlacet).text("TWITTERS(".concat(data.user.tweets).concat(")"));
+            $(enlacefw).text("SEGUIDORES(".concat(data.user.followers).concat(")"));
+            $(enlacefwg).text("SEGUIDOS(".concat(data.user.following).concat(")"));
+            <!--.show() sirve para mostrar elementos html ocultos(hidden)-->
+            $('#padmin2002').show();
+            $('#padmin2001').show();
+        };
+
+        <!--función para cargar la informacion de los tweets en busqueda usuarios-->
+        var loadperfiles = function(list){
+            $('#cuerpofollowers').empty();
+            for(var file in list){
+                var cont = list[file].split(";");
+                var content = "<tr>"
+                content += '<td>' + cont[0] + '</td>';
+                content += '<td>' + cont[1] + '</td>';
+                content += '<td>' + cont[2]  + '</td>';
+                content += '<td>' + cont[3] + '</td>';
+                content += "</tr>"
+                $('#cuerpofollowers').append(content);
+            }
+        };
+
+        <!--función para cargar la información de los seguidores del usuario introducido en busqueda usuarios-->
+        var followingloop = function(list){
+            $('#cuerpofollowing').empty();
+            for(var file in list){
+                var cont = list[file].split(";");
+                var content = "<tr>"
+                content += '<td>' + cont[0] + '</td>';
+                content += '<td>' + cont[1] + '</td>';
+                content += '<td>' + cont[2]  + '</td>';
+                content += '<td>' + cont[3] + '</td>';
+                content += "</tr>"
+                $('#cuerpofollowing').append(content);
+            }
+        };
+
+        <!--función para cargar la lista de dispositivos más usados por el usuario dado en busqueda de usuarios-->
+        var topdisp = function(list){
+        $('#topdispositivos').empty();
+            var content= '<h3 id="topdispositivos">Top Dispositivos Usados:</h3>';
+            for(var a in list){
+                content = content.concat('<p style="font-size:14px;">'+ a+ ': ' + list[a] +'</p>');
+            }
+            $('#topdispositivos').append(content);
+        };
+
+        <!--función para cargar la lista de hashtags más usados por el usuario dado en busqueda de usuarios-->
+        var tophash = function(list){
+            $('#tophashtags').empty();
+            var content = '<h3 id="tophashtags">Top Hashtags:</h3>';
+            for(var a in list){
+                content= content.concat( '<p style="font-size:14px;">#'+ a+ ': ' + list[a] +'</p>');
+                }
+            $('#tophashtags').append(content);
+        };
+
+        <!--función para cargar la lista de usuarios más mencionados por el usuario dado en busqueda de usuarios-->
+        var topusers = function(list){
+            $('#topusers').empty();
+            var content = '<h3 id="tophashtags">Usuarios más mencionados:</h3>';
+            for(var a in list){
+                content= content.concat( '<p style="font-size:14px;">'+ a+ ': ' + list[a] +'</p>');
+                }
+            $('#tophashtags').append(content);
+        };
+
+        <!--función para cargar los tweets del usuario dado en busqueda de usuarios-->
+        var tweetsloop = function(list){
+            $('#cuerpotabla').empty();
+            for(var file in list){
+                var cont = list[file].split(";");
+                var content = "<tr>"
+                content += '<td>' + cont[0] + '</td>';
+                content += '<td>' + cont[1] + '</td>';
+                content += '<td>' + cont[2]  + '</td>';
+                content += '<td>' + cont[3] + '</td>';
+                content += "</tr>"
+                $('#cuerpotabla').append(content);
+            }
+        };
+
+        <!--función jquery para crear un menu en una sola interfaz sin tener que refrescar la página-->
+        $('#menubar  li  a').click( function(event){
+            var vid = $(this).attr('id');
+            if(vid == 'idbu'){
+                $('#geolocationwindow').hide();
+                $('#buscarmenu').show();
+                $('#padmin2000').show();
+                $('#mapas').show();
+                $('#divrelacion').hide();
+                $('#respuestaamistad').text('');
+                $('#respuestaamistad2').text('');
+                $('#usu1').val('');
+                $('#usu2').val('');
+                $('#infoloop').show();
+                $('#alarmwindow').hide();
+            }else if(vid == 'idru'){
+                $('#geolocationwindow').hide();
+                $('#divrelacion').show();
+                $('#buscarmenu').hide();
+                $('#padmin2000').hide();
+                $('#mapas').hide();
+                $('#oculto').hide();
+                $('#infoloop').hide();
+                $('#alarmwindow').hide();
+            }else if(vid == 'idgl'){
+                $('#username').text('');
+                $('#buscarmenu').hide();
+                $('#padmin2000').hide();
+                $('#divrelacion').hide();
+                $('#mapas').hide();
+                $('#oculto').hide();
+                $('#respuestaamistad').text('');
+                $('#respuestaamistad2').text('');
+                $('#geolocationwindow').show();
+                $('#infoloop').hide();
+                $('#alarmwindow').hide();
+            }else{
+                $('#infoloop').hide();
+                $('#buscarmenu').hide();
+                $('#padmin2000').hide();
+                $('#divrelacion').hide();
+                $('#mapas').hide();
+                $('#oculto').hide();
+                $('#geolocationwindow').hide();
+                $('#alarmwindow').show();
+            }
+
+            event.preventDefault();
+            $('#menubar  li  a').removeClass("active");
+            $(this).addClass("active");
+            event.stopPropagation();
+        });
+
+        <!--función jquery para crear un menu en una sola interfaz sin tener que refrescar la página-->
+        $('#menu2bar li a').click(function(){
+            $('#menu2bar li a').removeClass("oscuro");
+             var vid = $(this).attr('id');
+             if (vid == 'enlacet'){
+                $(this).addClass("oscuro");
+                $('#oculto').show();
+                $('#oculto3').hide();
+                $('#oculto4').hide();
+             }else if(vid == 'enlacefw'){
+                $(this).addClass("oscuro");
+                $('#oculto3').show();
+                $('#oculto').hide();
+                $('#oculto4').hide();
+             }else{
+                $(this).addClass("oscuro");
+                $('#oculto3').hide();
+                $('#oculto').hide();
+                $('#oculto4').show();
+             }
+        });
+
+        <!--función jquery para cargar los mapas de google con un punto inicial por defecto-->
+        function initMap(){
+            var myLatlng = new google.maps.LatLng(40.58185485,-3.576150319184772);
+                var mapOptions = {
+                  zoom: 4,
+                  center: myLatlng
+                }
+            var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+            var map = new google.maps.Map(document.getElementById("map2"), mapOptions);
+            var map = new google.maps.Map(document.getElementById("map3"), mapOptions);
+            var map = new google.maps.Map(document.getElementById("map4"), mapOptions);
+        };
+
+        <!--función jquery para cargar los mapas de google pudiendo pasar parámetros a la función-->
+        function cargarmapa(lugares,string){
+            var myLatlng = new google.maps.LatLng(40.58185485,-3.576150319184772);
+                var mapOptions = {
+                  zoom: 4,
+                  center: myLatlng
+                }
+                var map = new google.maps.Map(document.getElementById(string), mapOptions);
+                var dic={};
+            for (var sitio in lugares){
+                var geocoder = new google.maps.Geocoder();
+                geocoder.geocode({'address':sitio},makeCallback(sitio,lugares,map,dic));
+            }
+        };
+
+        function makeCallback(city,matriz,map,dic){
+
+            var geocodeCallBack = function(results,status){
+                var i = city;
+
+                if (status == google.maps.GeocoderStatus.OK) {
+                    var Lat = results[0].geometry.location.lat();
+                    var Lng = results[0].geometry.location.lng();
+                    var marker = new google.maps.Marker({
+                        position: new google.maps.LatLng(Lat, Lng),
+                        title:"",
+                    });
+
+                    marker.setMap(map);
+                    var contenido = matriz[i].split(';');
+
+                    if (contenido.length < 2){
+                        var contentString = '<div class="info-window">' +
+                        '<h4>- '+ contenido[0] +'</h4>' +
+                        '<div class="info-content">' +
+                        '</div>' +
+                        '</div>';
+                    }else{
+                        var cont = '';
+                        for(var v = 0;v<contenido.length;v++){
+                        cont += contenido[v] + " ";
+                        }
+
+                        var contentString = '<div class="info-window">' +
+                        '<h4>- '+
+                        cont
+                        +'</h4>' +
+                        '<div class="info-content">' +
+                        '</div>' +
+                        '</div>';
+                        }
+
+                    if(!(marker.position in dic)){
+                        dic[marker.position]=contentString;
+                    }else{
+                        var cont = dic[marker.position];
+                        cont += contentString;
+                        dic[marker.position]=cont;
+                    }
+
+                        var infowindow = new google.maps.InfoWindow({
+                        content: dic[marker.position],
+                        maxWidth: 400
+                        });
+
+                        marker.addListener('click',function (){
+                        infowindow.open(map, marker);
+                        });
+
+                    } else {
+                        return;
+                    }
+            }
+            return geocodeCallBack;
+        };
+
+        <!--intento de crear un progress bar solo posible si se tiene controlado en que punto esta la ejecución del código-->
+        function move() {
+            $("#myProgress").show();
+            var elem = document.getElementById("myBar");
+            var width = 1;
+            var id = setInterval(frame, 10);
+            function frame() {
+                if (width >= 100) {
+                    clearInterval(id);
+                    $("#myProgress").hide();
+                } else {
+                    width++;
+                    elem.style.width = width + '%';
+                }
+            }
+        };
+
+        <!--cambia el icono de notificaciones-->
+        $('#idga').click(function(){
+            $('#campana').css("color","white");
+        });
+    </script>
+        <!--tokens de google para poder usar los mapas-->
+    <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?key=AIzaSyB2BGcjbztXpR3F_qcpYq0D0M1xMUhq66Y&callback=initMap"></script>
+{%  endblock %}
+    </div>
+</body>
+</html>
+
+
+

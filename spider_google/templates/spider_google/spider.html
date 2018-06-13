@@ -1,0 +1,350 @@
+{% extends 'spider_google/cabecera.html' %}
+{% load staticfiles %}
+
+{% block body %}
+
+<div class="spiderbody">
+    <form class="form sepracion-form" id="buscador_googleForm" name="buscador_Form" method="post" action="." style="border-bottom:0px;">
+        {% csrf_token %}
+        {% for field in buscador_Form %}
+            {{ field.as_hidden }}
+        {% endfor %}
+        <div class="container">
+            <div class="col-md-8 col-center sepracion-form">
+                <div class="col-md-10 centrar-elemento-40">
+                    <img src="{%static 'img/googleicon.png'%}"/>
+                </div>
+
+                <input type="text" class="form-control centrar-elemento-30" id="buscador">
+            </div>
+        </div>
+
+        <a href="#" class="opcionesavanzadas" data-toggle="collapse" data-target="#opciones_avanzadas">Opciones avanzadas.</a>
+
+        <div class="container collapse" id="opciones_avanzadas">
+            <div class="form-inline sepracion-form">
+                <div class="row">
+                    <div class="col-md-8">
+                        <label class="float-left" for="and">Contiene esta frase exacta:</label>
+                        <span class="form-text text-muted float-left" id="help_and">Se buscara adicionalmente mediante esta frase exacta.</span>
+                    </div>
+
+                    <div class="col-md-4">
+                        <input type="text" class="form-control widthallinput" id="inp_and">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-inline sepracion-form">
+                <div class="row">
+                    <div class="col-md-8">
+                        <label class="float-left" for="or">Contiene alguna de las siguientes palabras:</label>
+                        <span class="form-text text-muted float-left" id="help_or" >Se buscara adicionalmente mediante estas palabras.</span>
+                    </div>
+
+                    <div class="col-md-4">
+                        <input type="text" class="form-control widthallinput" id="inp_or">
+                        <div class="anyadir-limpiar-margin">
+                            <button type="button" class="btn btn-primary" id="btn_or" onclick="anyadir_elemento('or')">Añadir</button>
+                            <button type="button" class="btn btn-danger" id="btn_or_lmp" onclick="limpiar_textarea('or')">Limpiar</button>
+                        </div>
+
+                        <textarea class="separacion-tx" id="tx_or" rows="8" cols="48" disabled></textarea>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="form-inline sepracion-form">
+                <div class="row">
+                    <div class="col-md-8">
+                         <label class="float-left" for="exclusion">No contiene alguna de las siguientes palabras:</label>
+                         <span  class="form-text text-muted float-left" id="help_exclusion">Los resultados no tendran las siguientes palabras.</span>
+                    </div>
+
+                    <div class="col-md-4">
+                         <input type="text" class="form-control widthallinput" id="inp_exclusion">
+                        <div class="anyadir-limpiar-margin">
+                            <button type="button" class="btn btn-primary" id="btn_exclusion" onclick="anyadir_elemento('exclusion')">Añadir</button>
+                            <button type="button" class="btn btn-danger" id="btn_exclusion_lmp" onclick="limpiar_textarea('exclusion')">Limpiar</button>
+                        </div>
+
+                         <textarea class="separacion-tx" id="tx_exclusion" rows="8" cols="48" disabled></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-inline sepracion-form">
+                <div class="row">
+                    <div class="col-md-8">
+                        <label class="float-left" for="extension_arch">Archivos con extension:</label>
+                        <span class="form-text text-muted float-left" id="help_extension_archivo">Se buscaran archivos con las siguiente extension.</span>
+                    </div>
+
+                    <div class="col-md-4">
+                        <input type="text" class="form-control widthallinput" id="inp_extension_arch">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-inline sepracion-form">
+                <div class="row">
+                    <div class="col-md-8">
+                        <label class="float-left" for="dominios">Dominio:</label>
+                        <span class="form-text text-muted float-left" id="help_dominios" >Se buscara solamente en este dominio.</span>
+                    </div>
+
+                    <div class="col-md-4">
+                        <input type="text" class="form-control widthallinput" id="inp_dominios">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-inline sepracion-form">
+                <div class="row">
+                    <div class="col-md-8">
+                        <label class="float-left" for="dominios_rel">Dominio relacionado:</label>
+                        <span class="form-text text-muted float-left" id="help_dominios_rel" >Se buscara en paginas que se crean que estan relacionadas con este dominio.</span>
+                    </div>
+
+                    <div class="col-md-4">
+                        <input type="text" class="form-control widthallinput" id="inp_dominios_rel">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-inline sepracion-form">
+                <div class="row">
+                    <div class="col-md-8">
+                        <label class="float-left" for="dominios_enl">Dominio enlazado:</label>
+                        <span class="form-text text-muted float-left" id="helpdominios_enl">Se buscara en paginas que enlacen con el siguiente enlace.</span>
+                    </div>
+
+                    <div class="col-md-4">
+                        <input type="text" class="form-control widthallinput" id="inp_dominios_enl">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-inline sepracion-form">
+                <div class="row">
+                    <div class="form col-md-8">
+                        <label class="float-left" for="numero_resultados">Numero de resultados:</label>
+                        <span class="form-text text-muted float-left" id="help_numero_resultados" >El numero de resultados maximo que se quiere buscar en google.</span>
+                    </div>
+
+                    <div class="col-md-4">
+                       <input type="number" class="form-control widthallinput" id="inp_numero_resultados">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-inline sepracion-form">
+                <div class="row">
+                    <div class="col-md-8">
+                        <label class="float-left" for="iteracion">Nivel de Profundidad de busqueda:</label>
+                        <span class="form-text text-muted float-left" id="help_iteracion">El nivel de subusquedas que quiere que se haga. Por defecto es 2.</span>
+                    </div>
+
+                    <div class="col-md-4">
+                       <input type="number" class="form-control widthallinput" id="inp_iteracion">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-inline sepracion-form">
+                <div class="row">
+                    <div class="col-md-8">
+                        <label class="float-left" for="filtrado_avanzado">Filtrado avanzado:</label>
+                        <span class="form-text text-muted float-left" id="help_filtrado_avanzado">Se buscaran enlaces o etiquetas relacionadas dentro de las paginas web.</span>
+                    </div>
+
+                    <div class="col-md-4">
+                        <input type="text" class="form-control widthallinput" id="inp_filtrado_avanzado">
+                        <div class="anyadir-limpiar-margin">
+                            <button type="button" class="btn btn-primary" id="btn_filtrado_avanzado" onclick="anyadir_elemento('filtrado_avanzado')">Añadir</button>
+                            <button type="button" class="btn btn-danger" id="btn_filtrado_avanzado_lmp" onclick="limpiar_textarea('filtrado_avanzado')">Limpiar</button>
+                        </div>
+                        <textarea class="separacion-tx" id="tx_filtrado_avanzado" rows="8" cols="48" disabled></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form sepracion-form">
+                <div class="row">
+                    <div class="col-md-8">
+                        <label class="float-left" for="ultima_act">Ultima actualizacion:</label>
+                        <span class="form-text text-muted float-left" id="help_ultima_act">Se buscaran resultados en un intervalo hasta esa fecha.</span>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label class="form-inline">
+                            <input type="radio" class="form-control" id="ultima_act_dia" name="ultima_act" value="d" onclick="inp_mesextra()"> 24 Horas.
+                        </label>
+
+                        <label class="form-inline">
+                            <input type="radio" class="form-control" id="ultima_act_sem" name="ultima_act" value="w" onclick="inp_mesextra()"> 7 Dias.
+                        </label>
+
+                        <label class="form-inline">
+                            <input type="radio" class="form-control" id="ultima_act_mes" name="ultima_act" value="m" onclick="inp_mesextra()"> 1 Mes.
+                        </label>
+
+                        <label class="form-inline">
+                            <input type="radio" class="form-control" id="ultima_act_anyo" name="ultima_act" value="y" onclick="inp_mesextra()"> 1 Año.
+                        </label>
+
+                        <label class="form-inline">
+                            <input type="radio" class="form-control" id="choise_ultima_act_mesx" name="ultima_act" value="mn" onclick="inp_mesextra()"> X Meses
+                            <input type="number" class="form-control" id="text_ultima_act_mesx" disabled>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container sepracion-form">
+                <div class="row">
+                    <div class="form col-md-6">
+                        <div>
+                            <label class="float-left" for="idioma">Idioma:</label>
+                            <span class="form-text text-muted float-left" id="help_idioma">Se buscaran los resultados en los siguientes idiomas.</span>
+                        </div>
+
+                        <div class="dataover">
+                            <table class="table table-striped text-center tablaidioma">
+                                <thead>
+                                  <tr>
+                                    <th class="text-center">Seleccion</th>
+                                    <th class="text-center">Nombre</th>
+                                  </tr>
+                                </thead>
+                                <tbody id="id_bus_idioma">
+                                {% for idioma in buscador_Form.bus_idioma %}
+                                    <tr>
+                                        <td>{{idioma.tag}}</td>
+                                        <td>{{idioma.choice_label}}</td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                              </table>
+                        </div>
+                    </div>
+
+                    <div class="form col-md-6">
+                        <div>
+                            <label class="float-left" for="pais">Pais:</label>
+                            <span class="form-text text-muted float-left" id="help_pais">Se buscaran los resultados en los paises seleccionados.</span>
+                        </div>
+                        <div class="dataover">
+                            <table class="table table-striped text-center tablapais" id="tablpais">
+                                <thead>
+                                  <tr>
+                                    <th class="text-center">Seleccion</th>
+                                    <th class="text-center">Nombre</th>
+                                  </tr>
+                                </thead>
+                                <tbody id="id_bus_pais">
+                                {% for pais in buscador_Form.bus_pais %}
+                                    <tr>
+                                        <td>{{pais.tag}}</td>
+                                        <td>{{pais.choice_label}}</td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                              </table>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="alert_run" tabindex="-1" role="dialog" data-controls-modal="alert_run" data-backdrop="static" data-keyboard="false">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title text-center">Aviso de ejecucion.</h4>
+              </div>
+              <div class="modal-body">
+                  <div class="alert alert-info" role="alert">
+                      <p class="text-center">Esta operacion puede tardar varios minutos en ejecutarse. Espere pacientemente.</p>
+                  </div>
+                  <div class="text-center">
+                      <img src="{% static 'img/load.gif' %}" class="rounded mx-auto d-block" height="250" width="250" alt="Cargando...">
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+            <div class="col-md-1 centrar-elemento-47 sepracion-form" style="border-bottom:0px;">
+                <button type="submit" class="btn btn-success" id="formsubmit" data-toggle="modal" data-target="#alert_run">Buscar</button>
+            </div>
+        </div>
+
+    </form>
+
+<script>
+    <!--Esta funcion solo se ejecuta cuando se da click al boton "formsubmit".-->
+    <!--La ejecucion de este JavaScript permite introducir los elementos de los input personalizados dentro-->
+    <!--de los input del formulario de Django, haciendo asi un formulario completamente personalizado.-->
+    $("#formsubmit").click(function() {
+
+        $("#id_barra_buscador").val($("#buscador").val());
+        $("#id_bus_and").val($("#inp_and").val());
+        $("#id_bus_or").val($("#tx_or").val());
+        $("#id_bus_exclusion").val($("#tx_exclusion").val());
+        $("#id_bus_dominio").val($("#inp_dominios").val());
+        $("#id_bus_dominio_relacionado").val($("#inp_dominios_rel").val());
+        $("#id_bus_dominio_enlazado").val($("#inp_dominios_enl").val());
+        $("#id_bus_filtro_avanzado").val($("#tx_filtrado_avanzado").val());
+        $("#id_bus_extension_archivo").val($("#inp_extension_arch").val());
+        $("#id_bus_profundidad").val($("#inp_iteracion").val());
+        $("#id_bus_num").val($("#inp_numero_resultados").val());
+
+        <!--Todo se añade segun el valor, menos la opcion de "ultima_act" que si se ha elegido la -->
+        <!--opcion "choise_ultima_act_mesx" usaremos el input de texto "text_ultima_act_mesx" para establecer el valor.-->
+        if (document.getElementById('choise_ultima_act_mesx').checked) {
+            var meses = "m" + $("#text_ultima_act_mesx").val()
+            $("#id_bus_fecha").val(meses);
+        } else {
+            var ctrl = document.getElementsByName("ultima_act");
+            for(i=0;i<ctrl.length;i++) {
+                if(ctrl[i].checked)
+                    $("#id_bus_fecha").val(ctrl[i].value);
+            }
+
+
+        }
+
+        $("#buscador_Form").submit();
+    }
+    );
+
+    <!--Esta funcion solo sirve en los campos de texto de tipo "textarea" que introduce del input de texto-->
+    <!--agrupado con un boton "añadir", "eliminar" y un textarea.-->
+    <!--El caso de esta funcion es añadir el elemento puesto en el input dentro del textarea.-->
+    function anyadir_elemento(id_elemento) {
+        var texto = document.getElementById("inp_"+id_elemento).value;
+        document.getElementById("inp_"+id_elemento).value = '';
+
+        document.getElementById("tx_"+id_elemento).value += texto + ",\n";
+    }
+    <!--El caso de esta funcion es limpiar el textarea de texto.-->
+    function limpiar_textarea(id_elemento) {
+        document.getElementById("tx_"+id_elemento).value = '';
+    }
+
+    <!--Esta funcion habilita el input de texto si hemos seleccionado la opcion "text_ultima_act_mesx".-->
+    function inp_mesextra() {
+        if (document.getElementById('choise_ultima_act_mesx').checked) {
+            document.getElementById('text_ultima_act_mesx').disabled = false;
+        } else {
+            document.getElementById('text_ultima_act_mesx').disabled = true;
+        }
+    }
+
+</script>
+</div>
+
+{% endblock body %}

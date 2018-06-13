@@ -1,0 +1,75 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/css2.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>LookAtOne: Analisis de usuarios y estadisticas en Twitter.</title>
+
+</head>
+<body>
+    <!-- Header -->
+    <div class="container-fuild">
+     <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 col-md-offset-3">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="#">LookAtOne</a>
+                </div>
+            </div>
+            {% if user.id %}
+            <div class="col-md-3">
+                <ul class="nav navbar-nav navbar-right">
+                  <li><a href="{% url 'lgo'%}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                </ul>
+            </div>
+            {% else %}
+                <div class="col-md-3">
+                    <!--<ul class="nav navbar-nav">-->
+                      <!--<li class="active"><a href="#">Home</a></li>-->
+                      <!--<li><a href="#">Page 1</a></li>-->
+                      <!--<li><a href="#">Page 2</a></li>-->
+                    <!--</ul>-->
+                    <ul class="nav navbar-nav navbar-right">
+                      <li><a href="{% url 'social:begin' 'twitter'%}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    </ul>
+                </div>
+            {% endif %}
+        </div>
+      </div>
+    </nav>
+</div>
+<section>
+    {% block content %} {% endblock %}
+</section>
+    <!-- Footer -->
+    <footer class="footer" style="width:100%;background:#343a40!important;">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="row">
+                    <div class="navbar-brand col-md-12">
+                        <div class="container">
+                            <p style="color:white;">@ 2018 UnderTwitter. Todos los derechos reservados.</p>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+    </footer>
+</body>
+</html>

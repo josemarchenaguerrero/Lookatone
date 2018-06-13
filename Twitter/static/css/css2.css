@@ -1,0 +1,154 @@
+.nueva-busqueda-buttom {
+    margin-bottom: 25px
+}
+
+.anyadir-limpiar-margin {
+    margin-top: 10px;
+    margin-left: 120px;
+}
+
+.table-result{
+    width:100px;
+}
+
+.table-result a, span{
+    display:block;
+    max-width:400px;
+    overflow: hidden;
+}
+
+.footer {
+	position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: red;
+    color: white;
+    text-align: center;
+	background: #343a40!important;
+}
+
+.col-center{
+    float: none;
+    margin: 0 auto;
+}
+
+.sepracion-form{
+	padding-top: 25px;
+	padding-bottom: 15px;
+	border-bottom:1px solid #f1f1f1;
+	margin-bottom:15px;
+}
+
+.spiderbody label {
+	display:block!important;
+	width:100%!important;
+	justify-content: flex-start!important;
+}
+
+.spiderbody .tablapais th td{
+	width:33%;
+}
+
+.centrar-elemento-47 {
+	position :relative !important; 
+    	left: 47% !important;
+}
+
+.centrar-elemento-40 {
+	position :relative !important; 
+    	left: 40% !important;
+}
+
+.centrar-elemento-30 {
+	position :relative !important; 
+    	left: 30% !important;
+}
+
+.opcionesavanzadas {
+	position :relative !important; 
+    left: 14% !important;
+}
+
+.spoderbody .tablaidioma th td{
+	width:50%;
+}
+
+.dataover {
+	height: 250px;
+	overflow: auto;
+	width:100%;
+	margin-top:85px;
+	margin-bottom: 15px;
+	border:1px solid #f1f1f1;
+}
+
+.selectcont {
+	margin-top:85px;
+}
+
+.widthallinput {
+	width:100%!important;
+}
+
+.width34input{
+	width:73%!important;
+}
+
+.width14button{
+	width:25%!important;
+}
+
+.separacion-tx {
+	margin-top: 10px;
+}
+
+.resultado-tb td {
+    max-width: 250px;
+}
+
+.pdf-button {
+    margin-top: 15px;
+	margin-bottom: 15px;
+	float: right;
+	display: block!important;
+}
+
+.just-padding {
+  padding: 15px;
+}
+
+.list-group.list-group-root {
+  padding: 0;
+  overflow: hidden;
+}
+
+.list-group.list-group-root .list-group {
+  margin-bottom: 0;
+}
+
+.list-group.list-group-root .list-group-item {
+  border-radius: 0;
+  border-width: 1px 0 0 0;
+}
+
+.list-group.list-group-root > .list-group-item:first-child {
+  border-top-width: 0;
+}
+
+.list-group.list-group-root > .list-group > .list-group-item {
+  padding-left: 30px;
+}
+
+.list-group.list-group-root > .list-group > .list-group > .list-group-item {
+  padding-left: 45px;
+}
+
+.list-group-item .glyphicon {
+  margin-right: 5px;
+}
+
+.ccentrar{
+    margin:10px auto!important;
+    max-width:600px!important;
+}

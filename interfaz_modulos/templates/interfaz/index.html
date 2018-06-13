@@ -1,0 +1,29 @@
+{% extends 'interfaz/base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<div class="content">
+    <div class="row">
+        <div class="col-md-7">
+            <div class="row">
+                <div class="col-md-12" style="justify-content:center;display:flex;padding-top:120px;">
+                    <img src="{% static 'img/logo.png' %}" style="width:400px;height:200px;">
+                </div>
+                <div class="col-md-12" style="text-align:center;font-size:30px;margin-top:-60px;">
+                    <p style="font-family: monospace;">Analisis y recopilación de datos</p>
+                </div>
+                <div class="col-md-12" style="justify-content:center;display:flex;margin-top:15px;">
+                    <button onclick="location.href='{% url 'cargar' %}'" style="background-color:#55BEDB;border:none;color:white;width:250px;height:50px;margin-right:10px;">Twitter</button>
+                    <button onclick="location.href='{% url 'index_spider_interfaz' %}'" style="background-color:#403360;border:none;color:white;width:250px;height:50px;">Spider</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5" style="justify-content:center;display:flex;padding-top:50px;">
+            <img src="{% static 'img/detective.png' %}" style="width:450px; height:500px;">
+        </div>
+    </div>
+    <div style="text-align:center;">
+    </div>
+</div>
+
+{% endblock content %}

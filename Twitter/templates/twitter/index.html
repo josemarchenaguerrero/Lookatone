@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+{% extends 'twitter/cabecera.html' %}
+{% load static %}
+<html lang="en">
+<head>
+    {% block title %}UCGlobal - Perfil{% endblock %}
+</head>
+<body>
+{% block body %}
+    <br>
+    <br>
+    <div class="row">
+        <div class="container-fluid">
+            <div class="col-md-1 col-md-offset-1" style="border-right:0.5px solid #F2F2F2;">
+                <ul class="nav navbar-nav" id="menubar">
+                    <li><a id="idbu" class="active" href="#" >Busequeda Usuarios</a></li>
+                    <li><a id="idru" href="#" >Relaciones Usuarios</a></li>
+                    <li><a id="idgl" href="#" >Geolocalización</a></li>
+                </ul>
+            </div>
+            <div class="row">
+                <div class="col-md-5" id="buscarmenu">
+                    <h4>Busqueda Usuarios</h4>
+                    <hr>
+                    <form method="post" data-validate-username-url="{% url 'cargarusuario' %}" id="formulario">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="username">Usuario:</label>
+                            <input type="text" class="form-control" name='username' id="username" style="width:50%;">
+                        </div>
+                        <input  class="btn btn-info" id="aceptar" type="submit" value="Buscar" name="insertar"/>
+                    </form>
+                </div>
+                <div class="col-md-4">
+                    <div class="container-fliud">
+                        <h3>Seguidores:</h3>
+                        <div id="map" style="width:400px%;height:400px;"></div>
+                    </div>
+                </div>
+            </div>
+
+                    <div id="perfiloculto" class="col-md-6 col-md-offset-1" hidden>
+                        <br>
+                        <hr>
+                    <div class="nav navbar-nav" id="padded" >
+                       <img src="" width="100px" height="100px" style="border-radius:200px 200px;" id="logoperfil">
+                    </div>
+                    <div class="nav navbar-nav" id="padded" >
+                        <p id="usunick"></p>
+                        <p id="usuname"></p>
+                        <p id="usuid"></p>
+                        <p id="usulocation"></p>
+                    </div>
+                    <div class="nav navbar-nav" id="padded" >
+                        <p id="usuplocation"></p>
+                        <p id="usudescripcion" class="crop"></p>
+                        <p id="usugeo"></p>
+                        <p id="usufecha"></p>
+                    </div>
+                    <ul class="nav navbar-nav" id="menu2bar">
+                        <br>
+                        <li id="tweet" class="padded"><a id="enlacet" href="#"  >TWEETS()</a></li>
+                        <li id="followers" class="padded"><a id="enlacefw" href="#"  >SEGUIDORES()</a></li>
+                        <li id="following" class="padded"><a id="enlacefwg" href="#"  >SEGUIDOS()</a></li>
+                    </ul>
+                    </div>
+                     <div class="row" id="oculto" hidden>
+                    <div class="col-md-6 col-md-offset-1">
+                        <table class="table" >
+                            <thead class="oscuro">
+                              <tr>
+                                  <th>ID</th>
+                                  <th>Fecha</th>
+                                  <th>Texto</th>
+                                  <th>Fuente</th>
+                              </tr>
+                            </thead>
+                            <tbody id="cuerpotabla">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="row" id="oculto3" hidden>
+                    <div class="col-md-6 col-md-offset-1">
+                        <table class="table">
+                            <thead class="oscuro">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nombre</th>
+                                    <th>Apodo</th>
+                                    <th>Descripcion</th>
+                                </tr>
+                            </thead>
+                            <tbody id="cuerpofollowers">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="row" id="oculto4" hidden>
+                    <div class="col-md-6 col-md-offset-1">
+                       <table class="table">
+                            <thead class="oscuro">
+                              <tr>
+                                  <th>ID</th>
+                                  <th>Nombre</th>
+                                  <th>Apodo</th>
+                                  <th>Descripcion</th>
+                              </tr>
+                            </thead>
+                            <tbody id="cuerpofollowing">
+                            </tbody>
+                          </table>
+                    </div>
+                </div>
+                </div>
+        </div>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src="{% static 'js/mostrar.js' %}"></script>
+    <script>
+        $("#formulario").submit(function(event) {
+          event.preventDefault();
+          var form = $(this).closest("#formulario");
+          $.ajax({
+            url: form.attr("data-validate-username-url"),
+            data: $(this).serialize(),
+            dataType: 'json',
+            success: function (data) {
+              if (data.error) {
+                alert('no existe ningun usuario');
+              }else{
+                loadperfil(data,"#perfiloculto","#usunick","#usuname","#usuid","#usulocation","#usuplocation","#usudescripcion","#usugeo","#usufecha","#logoperfil",
+                "#tweet","#followers","#following");
+                tweetsloop(data.listatweets.lista);
+                loadperfiles(data.listatweets.listafollowers);
+                followingloop(data.listatweets.listafollowing);
+                cargarmapa(data.listatweets.usulugar);
+              }
+            }
+          });
+        });
+
+        var loadperfil = function(data,poculto,nick,name,id,location,plocation,descripcion,geo,fecha,avatar,tweet,follows,followg){
+            $(nick).text("Username: ".concat(data.user.username));
+            $(name).text("Nombre: ".concat(data.user.name));
+            $(id).text("id: ".concat(data.user.id));
+            $(location).text("Location: ".concat(data.user.location));
+            $(plocation).text("Profile Location: ".concat(data.user.profilelocation));
+            $(descripcion).text("Description: ".concat(data.user.description));
+            $(geo).text("Geo Location: ".concat(data.user.geoenabled));
+            $(fecha).text("Fecha Registro: ".concat(data.user.creationdata));
+            $(avatar).attr('src',data.user.image);
+            $(enlacet).text("TWITTERS(".concat(data.user.tweets).concat(")"));
+            $(enlacefw).text("SEGUIDORES(".concat(data.user.followers).concat(")"));
+            $(enlacefwg).text("SEGUIDOS(".concat(data.user.following).concat(")"));
+            $(poculto).show();
+        };
+
+        var loadperfiles = function(list){
+            $('#cuerpofollowers').empty();
+            for(var file in list){
+                var cont = list[file].split(";");
+                var content = "<tr>"
+                content += '<td>' + cont[0] + '</td>';
+                content += '<td>' + cont[1] + '</td>';
+                content += '<td>' + cont[2]  + '</td>';
+                content += '<td>' + cont[3] + '</td>';
+                content += "</tr>"
+                $('#cuerpofollowers').append(content);
+            }
+        };
+
+        var followingloop = function(list){
+            $('#cuerpofollowing').empty();
+            for(var file in list){
+                var cont = list[file].split(";");
+                var content = "<tr>"
+                content += '<td>' + cont[0] + '</td>';
+                content += '<td>' + cont[1] + '</td>';
+                content += '<td>' + cont[2]  + '</td>';
+                content += '<td>' + cont[3] + '</td>';
+                content += "</tr>"
+                $('#cuerpofollowing').append(content);
+            }
+        };
+
+
+        var tweetsloop = function(list){
+            $('#cuerpotabla').empty();
+            for(var file in list){
+                var cont = list[file].split(";");
+                var content = "<tr>"
+                content += '<td>' + cont[0] + '</td>';
+                content += '<td>' + cont[1] + '</td>';
+                content += '<td>' + cont[2]  + '</td>';
+                content += '<td>' + cont[3] + '</td>';
+                content += "</tr>"
+                $('#cuerpotabla').append(content);
+            }
+        };
+
+        $('#menubar  li  a').click( function(event){
+            var vid = $(this).attr('id');
+            if(vid == 'idbu'){
+                $('#buscarmenu').show();
+            }else{
+                $('#username').text('');
+                $('#buscarmenu').hide();
+                $('#perfiloculto').hide();
+                $('#oculto').hide();
+            }
+
+            event.preventDefault();
+            $('#menubar  li  a').removeClass("active");
+            $(this).addClass("active");
+            event.stopPropagation();
+        });
+
+        $('#menu2bar li a').click(function(){
+            $('#menu2bar li a').removeClass("oscuro");
+             var vid = $(this).attr('id');
+             if (vid == 'enlacet'){
+                $(this).addClass("oscuro");
+                $('#oculto').show();
+                $('#oculto3').hide();
+                $('#oculto4').hide();
+             }else if(vid == 'enlacefw'){
+                $(this).addClass("oscuro");
+                $('#oculto3').show();
+                $('#oculto').hide();
+                $('#oculto4').hide();
+             }else{
+                $(this).addClass("oscuro");
+                $('#oculto3').hide();
+                $('#oculto').hide();
+                $('#oculto4').show();
+             }
+        });
+
+        function initMap(){
+            var myLatlng = new google.maps.LatLng(40.58185485,-3.576150319184772);
+                var mapOptions = {
+                  zoom: 4,
+                  center: myLatlng
+                }
+            var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+        };
+
+        function cargarmapa(lugares){
+            var myLatlng = new google.maps.LatLng(40.58185485,-3.576150319184772);
+                var mapOptions = {
+                  zoom: 4,
+                  center: myLatlng
+                }
+                var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+            for (var sitio in lugares){
+                var geocoder = new google.maps.Geocoder();
+                geocoder.geocode({'address':sitio},makeCallback(sitio,lugares,map));
+            }
+        };
+
+        function makeCallback(city,matriz,map){
+            var geocodeCallBack = function(results,status){
+                var i = city;
+
+                if (status == google.maps.GeocoderStatus.OK) {
+                                  var Lat = results[0].geometry.location.lat();
+                                  var Lng = results[0].geometry.location.lng();
+
+                                   var marker = new google.maps.Marker({
+                                        position: new google.maps.LatLng(Lat, Lng),
+                                        title:"Hello World!",
+                                    });
+
+                                    marker.setMap(map);
+
+                                    var contentString = '<div class="info-window">' +
+                                    '<h4>Usuario:'+ matriz[i] +'</h4>' +
+                                    '<div class="info-content">' +
+                                    '<p>Fran Adriana Lima te espera en Australia ¿A que estás esperando?.</p>' +
+                                    '</div>' +
+                                    '</div>';
+
+                                   var infowindow = new google.maps.InfoWindow({
+                                        content: contentString,
+                                        maxWidth: 400
+                                    });
+
+                                    marker.addListener('click',function (){
+                                        infowindow.open(map, marker);
+                                    });
+
+
+                                } else {
+                                  return;
+                                }
+            }
+            return geocodeCallBack;
+        };
+
+      </script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9f--_Z_djchLIomgtBCZ0yz7_RwiDQ74&callback=initMap"></script>
+{%  endblock %}
+</body>
+</html>
+
+
+
